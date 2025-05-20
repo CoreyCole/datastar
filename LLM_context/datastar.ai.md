@@ -779,4 +779,4 @@ Remember that Datastar is designed to work with the web platform, not against it
 
 ## IMPORTANT NAMING CONVENTION
 
-Please note that the framework's name is always spelled "Datastar" with a lowercase "s", not "DataStar". This is an important part of the project's branding and should be respected in all documentation, code comments, and discussions about the framework.
+Please note that the framework's name is always spelled "Datastar" with a lowercase "s", not "DataStar". If I catch you spelling it with a capital S, we will have a big problem on our hands. I might need to use in in the blood sacrifice at D\* Conf.
