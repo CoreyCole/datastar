@@ -1,6 +1,6 @@
-# DataStar Guide: From Alpine.js to DataStar
+# Datastar Guide: From Alpine.js to DataStar
 
-This guide will help you transition from Alpine.js to DataStar, exploring the similarities and differences while providing practical examples of both frameworks side by side.
+This guide will help you transition from Alpine.js to Datastar, exploring the similarities and differences while providing practical examples of both frameworks side by side.
 
 ## Table of Contents
 
@@ -16,12 +16,12 @@ This guide will help you transition from Alpine.js to DataStar, exploring the si
 7. [Making HTTP Requests with Server-Sent Events](#making-http-requests-with-server-sent-events)
 8. [Advanced Features](#advanced-features)
 9. [Key Differences Summary](#key-differences-summary)
-10. [When to Choose DataStar Over Alpine.js](#when-to-choose-datastar-over-alpinejs)
+10. [When to Choose Datastar Over Alpine.js](#when-to-choose-datastar-over-alpinejs)
 11. [Conclusion](#conclusion)
 
 ## Introduction
 
-DataStar brings together frontend reactivity (like Alpine.js) and backend reactivity (like htmx) into one cohesive solution. If you're already familiar with Alpine.js, you'll find many similarities in how DataStar handles reactivity on the frontend, but with the added benefit of backend integration.
+Datastar brings together frontend reactivity (like Alpine.js) and backend reactivity (like htmx) into one cohesive solution. If you're already familiar with Alpine.js, you'll find many similarities in how DataStar handles reactivity on the frontend, but with the added benefit of backend integration.
 
 ## Core Concepts: State and Reactivity
 
@@ -38,9 +38,9 @@ Alpine.js uses the `x-data` directive to create a component with local state:
 </div>
 ```
 
-#### DataStar
+#### Datastar
 
-DataStar uses data attributes to create signals (reactive variables):
+Datastar uses data attributes to create signals (reactive variables):
 
 ```html
 <!-- Option 1: Using data-bind-signalName -->
@@ -55,7 +55,7 @@ DataStar uses data attributes to create signals (reactive variables):
 <div data-signals-input=""></div>
 ```
 
-In DataStar, signals are globally accessible throughout your app, prefixed with `$`. Unlike Alpine, which has scoped components, DataStar uses a more flat architecture with global signals.
+In Datastar, signals are globally accessible throughout your app, prefixed with `$`. Unlike Alpine, which has scoped components, DataStar uses a more flat architecture with global signals.
 
 ### Two-Way Data Binding
 
@@ -68,7 +68,7 @@ In DataStar, signals are globally accessible throughout your app, prefixed with 
 </div>
 ```
 
-#### DataStar
+#### Datastar
 
 ```html
 <input data-bind-input />
@@ -93,7 +93,7 @@ In DataStar, signals are globally accessible throughout your app, prefixed with 
 </div>
 ```
 
-#### DataStar
+#### Datastar
 
 ```html
 <div data-signals-show="false">
@@ -117,7 +117,7 @@ In DataStar, signals are globally accessible throughout your app, prefixed with 
 </div>
 ```
 
-#### DataStar
+#### Datastar
 
 ```html
 <input data-bind-input />
@@ -139,7 +139,7 @@ In DataStar, signals are globally accessible throughout your app, prefixed with 
 </div>
 ```
 
-#### DataStar
+#### Datastar
 
 ```html
 <input data-bind-input />
@@ -162,7 +162,7 @@ In DataStar, signals are globally accessible throughout your app, prefixed with 
 </div>
 ```
 
-#### DataStar
+#### Datastar
 
 ```html
 <input data-bind-input />
@@ -176,7 +176,7 @@ In DataStar, signals are globally accessible throughout your app, prefixed with 
 
 ### Mouse Events
 
-Both Alpine.js and DataStar provide mechanisms for handling mouse events, but with slightly different syntax and capabilities.
+Both Alpine.js and Datastar provide mechanisms for handling mouse events, but with slightly different syntax and capabilities.
 
 #### Alpine.js
 
@@ -194,9 +194,9 @@ Alpine.js uses the `@` prefix for event binding:
 </div>
 ```
 
-#### DataStar
+#### Datastar
 
-DataStar uses the `data-on-` prefix followed by the event name:
+Datastar uses the `data-on-` prefix followed by the event name:
 
 ```html
 <div data-signals-count="0">
@@ -210,7 +210,7 @@ DataStar uses the `data-on-` prefix followed by the event name:
 </div>
 ```
 
-In DataStar, you have access to the native event object through the `evt` variable in your expressions:
+In Datastar, you have access to the native event object through the `evt` variable in your expressions:
 
 ```html
 <div data-on-mousemove="console.log(evt.clientX, evt.clientY)">
@@ -220,7 +220,7 @@ In DataStar, you have access to the native event object through the `evt` variab
 
 ### Keyboard Events
 
-Handling keyboard events is where DataStar's approach offers more flexibility compared to Alpine.js.
+Handling keyboard events is where Datastar's approach offers more flexibility compared to Alpine.js.
 
 #### Alpine.js
 
@@ -239,9 +239,9 @@ Alpine.js uses event modifiers for common keyboard events:
 </div>
 ```
 
-#### DataStar
+#### Datastar
 
-DataStar provides more granular control by giving you direct access to the event object:
+Datastar provides more granular control by giving you direct access to the event object:
 
 ```html
 <div data-signals-message="''">
@@ -266,7 +266,7 @@ DataStar provides more granular control by giving you direct access to the event
 </div>
 ```
 
-For global keyboard events (that aren't tied to a specific element), DataStar provides the `__window` modifier:
+For global keyboard events (that aren't tied to a specific element), Datastar provides the `__window` modifier:
 
 ```html
 <!-- Listen for Ctrl+L anywhere on the page -->
@@ -282,7 +282,7 @@ For global keyboard events (that aren't tied to a specific element), DataStar pr
 
 ### Event Modifiers
 
-DataStar offers a range of modifiers for event handling.
+Datastar offers a range of modifiers for event handling.
 
 #### Alpine.js
 
@@ -304,9 +304,9 @@ Alpine.js uses dot notation for event modifiers:
 </div>
 ```
 
-#### DataStar
+#### Datastar
 
-In DataStar, you use the event object directly and the JavaScript comma operator for multiple actions:
+In Datastar, you use the event object directly and the JavaScript comma operator for multiple actions:
 
 ```html
 <!-- Prevent default behavior -->
@@ -319,7 +319,7 @@ In DataStar, you use the event object directly and the JavaScript comma operator
 </div>
 ```
 
-DataStar also supports additional modifiers with the double-underscore syntax:
+Datastar also supports additional modifiers with the double-underscore syntax:
 
 ```html
 <!-- Global events with __window -->
@@ -352,7 +352,7 @@ Both frameworks support listening for custom events.
 </div>
 ```
 
-#### DataStar
+#### Datastar
 
 ```html
 <div
@@ -361,29 +361,29 @@ Both frameworks support listening for custom events.
 >
   <p data-text="$message"></p>
   <button
-    data-on-click="window.dispatchEvent(new CustomEvent('customevent', {detail: 'Hello from DataStar'}))"
+    data-on-click="window.dispatchEvent(new CustomEvent('customevent', {detail: 'Hello from Datastar'}))"
   >
     Dispatch event
   </button>
 </div>
 ```
 
-For integration with web components or other JavaScript libraries that emit events, DataStar's approach provides greater flexibility by giving you direct access to the event object.
+For integration with web components or other JavaScript libraries that emit events, Datastar's approach provides greater flexibility by giving you direct access to the event object.
 
 ## The Big Difference: Backend Integration with Server-Sent Events (SSE)
 
-This is where DataStar really shines compared to Alpine.js. While Alpine is purely frontend-focused, DataStar integrates with your backend using Server-Sent Events (SSE), a web standard that enables servers to push updates to clients over a single, long-lived HTTP connection.
+This is where Datastar really shines compared to Alpine.js. While Alpine is purely frontend-focused, DataStar integrates with your backend using Server-Sent Events (SSE), a web standard that enables servers to push updates to clients over a single, long-lived HTTP connection.
 
-### How DataStar Uses SSE
+### How Datastar Uses SSE
 
-DataStar extends the standard SSE protocol (which normally only supports GET requests) to work with all HTTP methods (POST, PUT, PATCH, DELETE), allowing for true bidirectional communication. Here's what happens behind the scenes:
+Datastar extends the standard SSE protocol (which normally only supports GET requests) to work with all HTTP methods (POST, PUT, PATCH, DELETE), allowing for true bidirectional communication. Here's what happens behind the scenes:
 
-1. When you use actions like `@get()`, `@post()`, etc., DataStar opens a connection to the server
+1. When you use actions like `@get()`, `@post()`, etc., Datastar opens a connection to the server
 2. The server responds with the MIME type `text/event-stream`
 3. The server can then stream multiple events to the client without closing the connection
 4. These events can include HTML fragments, signal updates, or script execution commands
 
-DataStar extends SSE by defining specific event types:
+Datastar extends SSE by defining specific event types:
 
 - `datastar-merge-fragments`: Updates HTML in the DOM
 - `datastar-merge-signals`: Updates signal values
@@ -456,9 +456,9 @@ In Alpine, you'd likely need to:
 </div>
 ```
 
-#### DataStar Approach
+#### Datastar Approach
 
-With DataStar, the backend controls the UI transitions:
+With Datastar, the backend controls the UI transitions:
 
 ```html
 <!-- View Mode -->
@@ -497,7 +497,7 @@ data:   </div>
 data: </div>
 ```
 
-The key difference is that with DataStar:
+The key difference is that with Datastar:
 
 1. The server owns the UI state transitions through SSE events
 2. The server can send multiple updates in a single response
@@ -526,9 +526,9 @@ Alpine has no built-in HTTP functionality. You need to use `fetch()` or a librar
 </div>
 ```
 
-### DataStar
+### Datastar
 
-DataStar has built-in actions for HTTP requests that leverage the extended SSE protocol:
+Datastar has built-in actions for HTTP requests that leverage the extended SSE protocol:
 
 ```html
 <button data-on-click="@get('/api/data')">Fetch Data</button>
@@ -544,14 +544,14 @@ DataStar has built-in actions for HTTP requests that leverage the extended SSE p
 <div data-class-loading="$loading">Loading...</div>
 ```
 
-When these actions are triggered, DataStar:
+When these actions are triggered, Datastar:
 
 1. Sends the HTTP request to the server
 2. Establishes an SSE connection
 3. Receives a stream of events from the server
 4. Processes these events to update the DOM and signals
 
-Unlike traditional AJAX where you get a single response, DataStar's SSE integration allows the server to send multiple events in response to a single request:
+Unlike traditional AJAX where you get a single response, Datastar's SSE integration allows the server to send multiple events in response to a single request:
 
 ```javascript
 // Server-side example (Node.js)
@@ -610,7 +610,7 @@ This approach enables real-time updates and progressive UI enhancements without 
 </div>
 ```
 
-#### DataStar
+#### Datastar
 
 ```html
 <input type="checkbox" data-bind-checkboxes.one /> One
@@ -623,7 +623,7 @@ This approach enables real-time updates and progressive UI enhancements without 
 
 ### Building a Dropdown Menu Component
 
-Let's implement a dropdown menu to demonstrate how DataStar handles common UI patterns that typically require a combination of state management and event handling.
+Let's implement a dropdown menu to demonstrate how Datastar handles common UI patterns that typically require a combination of state management and event handling.
 
 #### Basic Dropdown Implementation
 
@@ -858,14 +858,14 @@ This example demonstrates:
 
 ### Dropdown Implementation Notes
 
-When implementing dropdowns with DataStar, consider these key points:
+When implementing dropdowns with Datastar, consider these key points:
 
 1. **Signal Structure**: Choose between global signals or namespaced/component-specific signals based on your needs:
 
    - Global signals (`data-signals-dropdown_open="false"`) are simpler but can conflict across multiple dropdowns
    - Namespaced signals (`data-signals-dropdown.isOpen="false"`) provide better organization and isolation
 
-2. **Click-Outside Detection**: In Alpine.js, you'd use `@click.away`, but in DataStar you can achieve this with:
+2. **Click-Outside Detection**: In Alpine.js, you'd use `@click.away`, but in Datastar you can achieve this with:
 
    ```html
    <div
@@ -907,21 +907,21 @@ When implementing dropdowns with DataStar, consider these key points:
    data: fragments <div class="dropdown-content">...</div>
    ```
 
-Unlike Alpine.js where you'd typically need to implement all dropdown functionality on the client side, DataStar allows you to choose which parts to handle client-side for responsiveness and which parts to delegate to the server for more complex logic or dynamic content.
+Unlike Alpine.js where you'd typically need to implement all dropdown functionality on the client side, Datastar allows you to choose which parts to handle client-side for responsiveness and which parts to delegate to the server for more complex logic or dynamic content.
 
 ## Key Differences Summary
 
 1. **Architecture**:
 
    - Alpine.js: Component-based with scoped state
-   - DataStar: Global signals with prefix notation
+   - Datastar: Global signals with prefix notation
 
 2. **Backend Integration**:
 
    - Alpine.js: None built-in, requires manual AJAX
-   - DataStar: Built-in Server-Sent Events (SSE) integration with extensions for all HTTP methods
+   - Datastar: Built-in Server-Sent Events (SSE) integration with extensions for all HTTP methods
 
-3. **SSE Events in DataStar**:
+3. **SSE Events in Datastar**:
 
    - `datastar-merge-fragments`: Updates HTML in the DOM
    - `datastar-merge-signals`: Updates signal values
@@ -932,23 +932,23 @@ Unlike Alpine.js where you'd typically need to implement all dropdown functional
 4. **HTTP Actions**:
 
    - Alpine.js: None built-in
-   - DataStar: Built-in actions for GET, POST, PUT, PATCH, DELETE that use extended SSE
+   - Datastar: Built-in actions for GET, POST, PUT, PATCH, DELETE that use extended SSE
 
 5. **UI Control**:
 
    - Alpine.js: Frontend controls the UI
-   - DataStar: Backend can control and update the UI through SSE events
+   - Datastar: Backend can control and update the UI through SSE events
 
 6. **Syntax**:
 
    - Alpine.js: x-prefixed directives (x-data, x-model, etc.)
-   - DataStar: data-prefixed attributes (data-bind, data-text, etc.)
+   - Datastar: data-prefixed attributes (data-bind, data-text, etc.)
 
 7. **State Management**:
    - Alpine.js: Local component state
-   - DataStar: Global signal-based state that can be updated from the server
+   - Datastar: Global signal-based state that can be updated from the server
 
-## When to Choose DataStar Over Alpine.js
+## When to Choose Datastar Over Alpine.js
 
 1. When you want seamless backend integration with real-time updates
 2. When your server needs to control UI state transitions
@@ -959,6 +959,6 @@ Unlike Alpine.js where you'd typically need to implement all dropdown functional
 
 ## Conclusion
 
-DataStar provides a powerful alternative to Alpine.js with built-in backend integration. If you're used to Alpine.js, the transition should be smooth since many concepts are similar, but with slightly different syntax.
+Datastar provides a powerful alternative to Alpine.js with built-in backend integration. If you're used to Alpine.js, the transition should be smooth since many concepts are similar, but with slightly different syntax.
 
-The biggest advantage of DataStar is the tight backend integration via Server-Sent Events, allowing your server to control UI state transitions and update the DOM in a more declarative way.
+The biggest advantage of Datastar is the tight backend integration via Server-Sent Events, allowing your server to control UI state transitions and update the DOM in a more declarative way.
